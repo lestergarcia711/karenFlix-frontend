@@ -5,7 +5,8 @@ import { tipoLabel } from '../core/format.js';
 import { peliculasApi } from '../api/peliculas.api.js';
 import { categoriasApi } from '../api/categorias.api.js';
 import { mountShell } from '../components/navbar.js';
-import { movieCard, poster, ratingBadge } from '../components/movieCard.js';
+import { movieCard } from '../components/movieCard.js';
+import { createCarousel } from '../components/carousel.js';
 import { emptyState, errorState, skeletonGrid, toastError } from '../core/ui.js';
 import { session } from '../core/session.js';
 
@@ -20,7 +21,7 @@ const filters = {
 };
 
 let requestId = 0; // guards against out-of-order responses
-const heroHost = h('div', {});
+const carouselHost = h('div', {});
 const results = h('div', { 'aria-live': 'polite' });
 const info = h('p', { class: 'results-info' });
 
@@ -35,7 +36,7 @@ const chipsHost = h('div', { class: 'chips', role: 'group', 'aria-label': 'Filtr
 searchInput.addEventListener('input', debounce(() => update({ busqueda: searchInput.value.trim() }), 350));
 
 render($('#app'),
-  heroHost,
+  carouselHost,
   h('section', { class: 'section' },
     h('div', { class: 'section-head' }, h('h2', {}, 'Explora el catálogo'),
       session.isAuthenticated && h('a', { class: 'btn btn-ghost btn-sm', href: 'perfil.html#proponer' }, icon('plus', 16), 'Proponer título')),
@@ -47,7 +48,7 @@ render($('#app'),
 
 renderChips();
 loadCategories();
-loadHero();
+loadCarousel();
 load();
 
 function renderChips() {
@@ -95,23 +96,15 @@ async function load() {
   }
 }
 
-// Featured title = current #1 of the ranking. Hidden if the catalog is empty.
-async function loadHero() {
+// Carousel = top of the ranking. Hidden entirely if the catalog is empty.
+async function loadCarousel() {
+  render(carouselHost, h('div', { class: 'carousel skeleton carousel-skeleton', 'aria-hidden': 'true' }));
   try {
-    const { data } = await peliculasApi.ranking({ limite: 1 });
-    const top = data.ranking[0];
-    if (!top) return;
-    render(heroHost, h('section', { class: 'hero' },
-      h('div', { class: 'hero-copy' },
-        h('div', { class: 'hero-tags' }, h('span', { class: 'tag tag-orange' }, 'Nº 1 del ranking'),
-          h('span', { class: 'tag tag-cyan' }, top.categoria_nombre || tipoLabel(top.tipo)), ratingBadge(top)),
-        h('h1', {}, top.titulo),
-        top.descripcion && h('p', {}, top.descripcion),
-        h('div', { class: 'hero-actions' },
-          h('a', { class: 'btn btn-primary', href: `pelicula.html?id=${encodeURIComponent(top.id)}` }, icon('play', 16), 'Ver detalle'),
-          h('a', { class: 'btn btn-ghost', href: 'ranking.html' }, 'Ver ranking completo'))),
-      h('div', { class: 'hero-art' }, poster(top))));
+    const { data } = await peliculasApi.ranking({ limite: 6 });
+    if (!data.ranking.length) { render(carouselHost); return; }
+    render(carouselHost, createCarousel(data.ranking));
   } catch (error) {
+    render(carouselHost);
     if (error.status === 429) toastError(error.message);
   }
 }
