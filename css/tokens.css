@@ -29,13 +29,16 @@
   --focus-ring: 0 0 0 3px rgba(79, 128, 255, 0.45);
 
   /* Typography */
-  --font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Roboto, Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-heading: "Outfit", "Inter", system-ui, sans-serif;
+  --font-display: "Bebas Neue", "Outfit", Impact, sans-serif;
 
   /* Radius, spacing, motion */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-pill: 999px;
+  /* Deliberately squarer corners: cards and buttons read as rectangles, not ovals */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-pill: 6px;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;

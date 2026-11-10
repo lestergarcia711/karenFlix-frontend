@@ -8,11 +8,11 @@ main { flex: 1; padding: var(--space-5) 0 var(--space-7); }
 /* Navbar */
 .navbar { position: sticky; top: 0; z-index: 50; background: rgba(30, 31, 36, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); }
 .navbar-inner { display: flex; align-items: center; gap: var(--space-4); height: var(--nav-height); }
-.brand { display: flex; align-items: center; gap: var(--space-2); font-weight: 800; font-size: 1.3rem; letter-spacing: 0.3px; }
+.brand { font-family: var(--font-display); font-weight: 400; font-size: 1.7rem; letter-spacing: 1.5px; display: flex; align-items: center; gap: var(--space-2); }
 .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--accent-orange); color: var(--text-dark); }
 .brand span em { font-style: normal; color: var(--accent-orange); }
 .nav-links { display: flex; align-items: center; gap: var(--space-1); margin-left: var(--space-4); }
-.nav-link { position: relative; padding: var(--space-2) var(--space-3); color: var(--text-muted); font-weight: 600; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+.nav-link { font-family: var(--font-heading); position: relative; padding: var(--space-2) var(--space-3); color: var(--text-muted); font-weight: 600; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
 .nav-link:hover { color: var(--text-main); background: var(--glass-bg); }
 .nav-link.active { color: var(--text-main); }
 .nav-link.active::after { content: ""; position: absolute; left: var(--space-3); right: var(--space-3); bottom: -13px; height: 3px; border-radius: 3px; background: var(--accent-orange); }
@@ -60,4 +60,14 @@ main { flex: 1; padding: var(--space-5) 0 var(--space-7); }
   .grid-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
   .auth-card { padding: var(--space-5) var(--space-4); }
   .nav-actions .btn-text-hide { display: none; }
+}
+
+@media (max-width: 560px) {
+  .navbar-inner { gap: var(--space-2); }
+  .brand { font-size: 1.4rem; }
+  .nav-actions { gap: 6px; }
+  .nav-actions .btn-sm { padding: 0 10px; }
+}
+@media (max-width: 420px) {
+  .brand-mark { display: none; }
 }
