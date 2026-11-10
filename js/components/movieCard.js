@@ -1,10 +1,11 @@
 import { h } from '../core/dom.js';
 import { icon } from '../core/icons.js';
+import { accentStyle } from '../core/accent.js';
 import { formatScore, safeImageUrl, tipoLabel, toNumber } from '../core/format.js';
 
 export function poster(pelicula, { rank } = {}) {
   const url = safeImageUrl(pelicula.imagen_url);
-  const box = h('div', { class: 'poster' });
+  const box = h('div', { class: 'poster', style: accentStyle(pelicula) });
   const fallback = h('div', { class: 'poster-fallback' }, pelicula.titulo);
   if (url) {
     const img = h('img', { src: url, alt: `Póster de ${pelicula.titulo}`, loading: 'lazy', referrerPolicy: 'no-referrer' });
@@ -26,7 +27,7 @@ export function ratingBadge(pelicula, { showCount = true } = {}) {
 }
 
 export function movieCard(pelicula, { rank } = {}) {
-  return h('a', { class: 'card-movie', href: `pelicula.html?id=${encodeURIComponent(pelicula.id)}`, 'aria-label': pelicula.titulo },
+  return h('a', { class: 'card-movie', style: accentStyle(pelicula), href: `pelicula.html?id=${encodeURIComponent(pelicula.id)}`, 'aria-label': pelicula.titulo },
     poster(pelicula, { rank }),
     h('div', { class: 'card-body' },
       h('h3', {}, pelicula.titulo),
