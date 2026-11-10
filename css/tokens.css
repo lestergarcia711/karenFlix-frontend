@@ -1,0 +1,50 @@
+/* Design tokens — palette from "Paleta de colores para el Frontend de Karenflix" */
+:root {
+  /* Backgrounds */
+  --bg-primary: #1E1F24;
+  --bg-sidebar: #25262C;
+  --bg-card-overlay: rgba(30, 31, 36, 0.6);
+
+  /* Accents */
+  --accent-orange: #FF5A36;
+  --accent-purple: #615DEC;
+  --accent-blue: #4F80FF;
+  --accent-cyan: #39C3D2;
+
+  /* Text */
+  --text-main: #FFFFFF;
+  --text-muted: #8E9099;
+  --text-dark: #101114;
+
+  /* Special */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --border-color: #2F313A;
+
+  /* Derived (built only from the palette above) */
+  --accent-orange-hover: #ff7352;
+  --accent-orange-soft: rgba(255, 90, 54, 0.14);
+  --accent-purple-soft: rgba(97, 93, 236, 0.18);
+  --accent-blue-soft: rgba(79, 128, 255, 0.16);
+  --accent-cyan-soft: rgba(57, 195, 210, 0.16);
+  --focus-ring: 0 0 0 3px rgba(79, 128, 255, 0.45);
+
+  /* Typography */
+  --font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Roboto, Arial, sans-serif;
+
+  /* Radius, spacing, motion */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --transition: 180ms ease;
+  --nav-height: 68px;
+  --container: 1200px;
+}

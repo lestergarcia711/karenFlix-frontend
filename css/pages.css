@@ -1,0 +1,28 @@
+/* Catalog filters */
+.filters { display: grid; gap: var(--space-4); margin-bottom: var(--space-5); padding: var(--space-4); background: var(--bg-sidebar); border: 1px solid var(--border-color); border-radius: var(--radius-lg); }
+.filters-row { display: grid; grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.results-info { color: var(--text-muted); font-size: 0.9rem; margin-bottom: var(--space-3); }
+
+/* Profile */
+.profile-head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); margin-bottom: var(--space-5); }
+.profile-head .avatar { width: 64px; height: 64px; font-size: 1.6rem; }
+.stack { display: grid; gap: var(--space-4); }
+.list-item { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border-color); }
+.list-item:first-child { border-top: 0; }
+.list-item .grow { min-width: 0; flex: 1; }
+.list-item strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Admin */
+.admin-banner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-4) var(--space-5); margin-bottom: var(--space-5); border-radius: var(--radius-lg); background: linear-gradient(120deg, var(--accent-purple-soft), var(--accent-orange-soft)); border: 1px solid var(--border-color); }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-4); }
+.bars { display: grid; gap: var(--space-3); }
+.bar-row { display: grid; grid-template-columns: 110px 1fr 36px; align-items: center; gap: var(--space-3); font-size: 0.9rem; }
+.bar-track { height: 10px; border-radius: var(--radius-pill); background: var(--glass-bg); overflow: hidden; }
+.bar-fill { height: 100%; border-radius: var(--radius-pill); transition: width 500ms ease; }
+.bar-fill.orange { background: var(--accent-orange); }
+.bar-fill.cyan { background: var(--accent-cyan); }
+.bar-fill.purple { background: var(--accent-purple); }
+
+@media (max-width: 760px) {
+  .filters-row { grid-template-columns: 1fr; }
+}
