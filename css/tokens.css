@@ -1,0 +1,54 @@
+/* Design tokens — palette taken from the KarenFlix logo (slate background, yellow→amber "K", coral→red "F").
+   Token names are kept for compatibility: purple = red, blue = amber, cyan = yellow. */
+:root {
+  /* Backgrounds */
+  --bg-primary: #1F252D;
+  --bg-sidebar: #272E38;
+  --bg-card-overlay: rgba(31, 37, 45, 0.6);
+
+  /* Accents */
+  --accent-orange: #FF6B4A;
+  --accent-purple: #F03A2E;
+  --accent-blue: #FFB400;
+  --accent-cyan: #FFE41F;
+
+  /* Text */
+  --text-main: #FFFFFF;
+  --text-muted: #9099A5;
+  --text-dark: #14171C;
+
+  /* Special */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --border-color: #333C48;
+
+  /* Derived (built only from the palette above) */
+  --accent-orange-hover: #FF8566;
+  --accent-orange-soft: rgba(255, 107, 74, 0.15);
+  --accent-purple-soft: rgba(240, 58, 46, 0.20);
+  --accent-blue-soft: rgba(255, 180, 0, 0.16);
+  --accent-cyan-soft: rgba(255, 228, 31, 0.14);
+  --focus-ring: 0 0 0 3px rgba(255, 180, 0, 0.45);
+
+  /* Typography */
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-heading: "Outfit", "Inter", system-ui, sans-serif;
+  --font-display: "Bebas Neue", "Outfit", Impact, sans-serif;
+
+  /* Radius, spacing, motion */
+  /* Deliberately squarer corners: cards and buttons read as rectangles, not ovals */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-pill: 6px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --transition: 180ms ease;
+  --nav-height: 68px;
+  --container: 1200px;
+}
