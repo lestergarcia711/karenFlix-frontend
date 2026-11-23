@@ -25,7 +25,7 @@ interfaz: el backend valida los roles (`401` / `403`) en cada ruta protegida.
 ```
 ├── index.html, login.html, register.html, pelicula.html,
 │   ranking.html, perfil.html, admin.html     # una página HTML por vista
-├── assets/                                   # favicon
+├── assets/                                   # logo (también usado como favicon)
 ├── css/
 │   ├── tokens.css                            # paleta, fuentes y tokens de diseño (variables CSS)
 │   ├── base.css                              # reset y tipografía
@@ -64,9 +64,10 @@ python3 -m http.server 5500
 
 ## Diseño
 
-- **Colores:** salen de la paleta del proyecto (`css/tokens.css`): fondos oscuros `#1E1F24` / `#25262C`,
-  naranja `#FF5A36` para acciones principales y menú activo, morado `#615DEC`, azul `#4F80FF` y cian
-  `#39C3D2`. Cada título recibe su propia combinación de acentos de la paleta, calculada a partir de su `id`.
+- **Colores:** salen del logo (`css/tokens.css`): fondos pizarra `#1F252D` / `#272E38`, coral `#FF6B4A`
+  para acciones principales y menú activo, rojo `#F03A2E`, ámbar `#FFB400` y amarillo `#FFE41F`. (Los
+  nombres de los tokens `purple`, `blue` y `cyan` se conservaron, pero ahora son rojo, ámbar y amarillo.)
+  Cada título recibe su propia combinación de acentos, calculada a partir de su `id`.
 - **Tipografías (Google Fonts):** Bebas Neue (logo, carrusel, números), Outfit (encabezados y botones) e
   Inter (texto). Sin conexión se usan fuentes de respaldo del sistema.
 - **Responsivo** desde teléfonos hasta escritorio, con foco visible en teclado, etiquetas `aria-*`,
