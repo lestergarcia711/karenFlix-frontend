@@ -20,7 +20,7 @@ export function mountNavbar(active) {
   const nav = h('header', { class: 'navbar' },
     h('div', { class: 'container navbar-inner' },
       h('a', { class: 'brand', href: session.homePath, 'aria-label': 'KarenFlix, inicio' },
-        h('span', { class: 'brand-mark' }, icon('play', 16)),
+        h('img', { class: 'brand-logo', src: 'assets/logo.png', alt: '', width: 40, height: 34 }),
         h('span', {}, 'Karen', h('em', {}, 'Flix'))),
       h('nav', { class: 'nav-links', id: 'nav-links', 'aria-label': 'Principal' },
         links.map((l) => h('a', { class: `nav-link${l.id === active ? ' active' : ''}`, href: l.href, 'aria-current': l.id === active ? 'page' : null }, l.label))),
